@@ -1,0 +1,195 @@
+* {
+    margin: 0;
+    padding: 0;
+
+    color: #FFF;
+    font-family: "Mukta", sans-serif;
+}
+
+body {
+    background-color: #000;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: "Lora", serif;
+}
+
+hr {
+    border: none;
+    border-bottom: 10px dotted #FFF;
+
+    margin: 4rem 0;
+    width: 3.5rem;
+
+    opacity: 0.5;
+}
+
+a {
+    text-decoration: none;
+}
+
+/* Global */
+
+.brand-secrets h1 {
+    font-family: "Amita", serif;
+}
+
+button {
+    font-size: 1.25rem;
+
+    background-color: transparent;
+    color: #FFF;
+
+    cursor: pointer;
+
+    padding: 0.5rem;
+    margin: 0 1rem;
+    width: 10rem;
+
+    border: 2px solid #FFF;
+    border-radius: 0.5rem;
+
+    transition: 0.3s;
+}
+
+button:hover {
+    background-color: #FFF;
+    color: #000;
+}
+
+/* Home */
+
+.section-home {
+    text-align: center;
+
+    min-height: 100vh;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.section-home .brand-secrets h1 {
+    font-size: 4rem;
+}
+
+.section-home .secrets-icon {
+    font-size: 8rem;
+
+    opacity: 0.5;
+
+    position: absolute;
+    left: 0;
+    right: 0;
+}
+
+.section-home h3 {
+    font-size: 1.5rem;
+    font-style: italic;
+    font-weight: 600;
+
+    margin-top: 3rem;
+}
+
+/* Login / Register */
+
+.section-login,
+.section-register {
+    min-height: 100vh;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.container-login,
+.container-register {
+    width: 20rem;
+    text-align: center;
+}
+
+.section-login h1,
+.section-register h1 {
+    font-size: 3rem;
+}
+
+/* Form */
+
+form {
+    font-size: 1.25rem;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    margin-top: 1rem;
+}
+
+form > * {
+    margin: 1rem 0 0;
+}
+
+.form-input {
+    font-family: inherit;
+    font-size: 1.25rem;
+
+    background-color: transparent;
+
+    border: none;
+    border-bottom: 2px solid #FFF;
+
+    width: 100%;
+}
+
+form button {
+    width: 100%;
+    margin: 2rem 0 0;
+}
+
+input:focus {
+    outline: none;
+}
+
+::placeholder {
+    color: #FFF;
+    opacity: 0.5;
+}
+
+/* Options */
+
+.options {
+    margin-top: 1.5rem;
+
+    display: flex;
+    justify-content: space-between;
+}
+
+.options-links {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.options a {
+    opacity: 0.5;
+    transition: 0.3s;
+}
+
+.options a:hover {
+    opacity: 1;
+}
+
+.options .secrets-icon {
+    font-size: 3.25rem;
+
+    cursor: pointer;
+
+    opacity: 0.5;
+    transition: 0.3s;
+}
+
+.options .secrets-icon:hover {
+    opacity: 1;
+}

@@ -1,0 +1,26 @@
+<%- include('partials/header') %>
+
+<section class="section-register">
+
+  <div class="container-register">
+    <h1>Register</h1>
+
+    <form action="/register" method="POST">
+      <input type="email" class="form-input" name="email" placeholder="Email" required>
+      <input type="password" class="form-input" name="password" placeholder="Password" required>
+      <input type="password" class="form-input" name="confirmPassword" placeholder="Confirm Password" required>
+      <button type="submit" class="button-login">Register</button>
+    </form>
+
+    <div class="options">
+      <div class="options-links">
+        <a href="/login">Have an existing account?</a>
+        <a href="">Need help?</a>
+      </div>
+      <a href="/"><i class="fa fa-fingerprint secrets-icon"></i></a>
+    </div>
+  </div>
+
+</section>
+
+<%- include('partials/header') %>

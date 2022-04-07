@@ -15,13 +15,9 @@ const db = mysql.createConnection({
     database: 'secrets_db'
 });
 
-// db.connect();
+const key = 'F3229A0B371ED2D9441B830D21A390C3';
 
-/*
-db.query("SELECT 1 + 1 AS solution", (err, rows, fields) => {
-    !err ? console.log("The solution is: ", rows[0].solution) : console.log(err);
-});
-*/
+// db.connect();
 
 // db.end();
 
@@ -40,14 +36,12 @@ app.post("/login", (req, res) => {
     const loginEmail = req.body.email;
     const loginPassword = req.body.password;
 
-    // db.query("SELECT * FROM users WHERE email = ?", [loginEmail], (err, results, fields) => {
-    db.query(`SELECT * FROM users WHERE email = '${loginEmail}'`, (err, results, fields) => {
+    db.query("SELECT AES_DECRYPT(password, UNHEX(?)) AS password FROM users WHERE email = ?", [key, loginEmail], (err, results, fields) => {
         if(!err) {
-            const user = results[0];
-            if(!user) {
+            if(!results[0]) {
                 console.log("User not found!");
                 res.redirect("/login");
-            } else if(user.password !== loginPassword) {
+            } else if(results[0].password.toString() !== loginPassword) {
                 console.log("Wrong password!");
                 res.redirect("/login");
             } else {
@@ -72,9 +66,10 @@ app.post("/register", (req, res) => {
     const registerConfirmPassword = req.body.confirmPassword;
 
     if(registerPassword !== registerConfirmPassword) {
-        res.send("Passwords do not match!");
+        console.log("Passwords do not match!");
+        res.redirect("/register");
     } else {
-        db.query(`INSERT INTO users VALUES ('${registerEmail}', '${registerPassword}')`, (err, results, fields) => {
+        db.query("INSERT INTO users VALUES(?, AES_ENCRYPT(?, UNHEX(?)))", [registerEmail, registerPassword, key], (err, results, fields) => {
             if(!err) {
                 console.log("User registered!");
                 res.render("secrets");
